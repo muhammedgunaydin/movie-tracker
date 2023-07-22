@@ -5,17 +5,18 @@ const MovieSchema = new Schema({
   name: {
     type: String,
     required: true,
+    unique:true
   },
   time: {
-    type: Number,
+    type: String,
     required: true,
   },
   year: {
-    type: Date,
+    type: Number,
     default: null,
   },
   rating: {
-    type: Number,
+    type: String,
     default: 0,
   },
   director: {
@@ -23,7 +24,7 @@ const MovieSchema = new Schema({
     required: true,
   },
   actors: {
-    type: [String],
+    type: String,
     default: null,
   },
   types: {
