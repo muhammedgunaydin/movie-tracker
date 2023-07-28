@@ -1,17 +1,23 @@
 const express = require('express')
 require('./db/mongo')
-const volleyball = require('volleyball')
+require('./services/redisService')
+const helmet = require('helmet')
+const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
+const volleyball = require('volleyball')
 const movieRouter = require('./router/movieRouter')
+const authRouter = require('./router/authRouter')
 require('dotenv').config()
-
 const app = express()
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.use(cookieParser())
+app.use(helmet())
 app.use(volleyball)
 
-app.use('/movie',movieRouter)
+app.use('/auth', authRouter)
+app.use('/movie', movieRouter)
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
