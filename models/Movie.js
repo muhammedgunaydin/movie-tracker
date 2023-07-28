@@ -31,6 +31,10 @@ const MovieSchema = new Schema({
     type: String,
     default: null,
   },
+  user:{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'User'
+  }
 })
 
 const Movie = mongoose.model('Movie', MovieSchema)

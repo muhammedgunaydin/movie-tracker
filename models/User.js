@@ -14,7 +14,11 @@ const UserSchema = new Schema({
   isAdmin: {
     type: Boolean,
     default: false,
-  }
+  },
+  movies:[{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'Movie'
+  }]
 })
 
 const User = mongoose.model('User', UserSchema)
