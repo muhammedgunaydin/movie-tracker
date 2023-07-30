@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 import '../styles/registerPage.css'
 import Headernobut from '../components/headernobut'
 
@@ -7,8 +8,13 @@ const RegisterPage = () => {
   const [password, setPassword] = useState('')
 
   const handleLogin = () => {
-    console.log('Email:', email)
-    console.log('Password:', password)
+    axios.post('http://localhost:9000/auth/signup',{email:email, password:password}).then(response => {
+      console.log('Yeni Kullanıcı:', response.data);
+      // Kullanıcı oluşturulduğunda gerekli işlemleri yapabilirsiniz
+    })
+    .catch(error => {
+      console.error('Kullanıcı oluşturulamadı:', error);
+    });
   }
 
   return (

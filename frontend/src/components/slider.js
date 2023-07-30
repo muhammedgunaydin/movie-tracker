@@ -23,20 +23,16 @@ const SliderComponent = () => {
           <div className="slide-text">Oppenheimer</div>
         </div>
         <div className="slide-item">
-          <img src={require('../img/opp.jpg')} alt="img 2" />
-          <div className="slide-text">2</div>
+          <img src={require('../img/barb.jpg')} alt="img 2" />
+          <div className="slide-text">Barbie</div>
         </div>
         <div className="slide-item">
-          <img src={require('../img/opp.jpg')} alt="img 3" />
-          <div className="slide-text">3</div>
+          <img src={require('../img/flash.webp')} alt="img 3" />
+          <div className="slide-text">The Flash</div>
         </div>
         <div className="slide-item">
-          <img src={require('../img/opp.jpg')} alt="img 4" />
-          <div className="slide-text">4</div>
-        </div>
-        <div className="slide-item">
-          <img src={require('../img/opp.jpg')} alt="img 5" />
-          <div className="slide-text">5</div>
+          <img src={require('../img/bb.webp')} alt="img 4" />
+          <div className="slide-text">Blue Bettle</div>
         </div>
       </Slider>
     </div>
