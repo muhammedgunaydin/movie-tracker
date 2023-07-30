@@ -18,27 +18,25 @@ const SliderComponent = () => {
   return (
     <div className="slider-container">
       <Slider {...settings}>
-        <div onClick={()=>{
-          window.location.href = 'localhost:3000/batman'
-        }} className="slide-item">
-          <img src={require('../img/batman.jpg')} alt="Resim 1" />
-          <div className="slide-text">Batman Dark Knight</div>
+        <div className="slide-item">
+          <img src={require('../img/opp.jpg')} alt="img 1" />
+          <div className="slide-text">Oppenheimer</div>
         </div>
         <div className="slide-item">
-          <img src={require('../img/bedel.jpg')} alt="Resim 2" />
-          <div className="slide-text">Esaretin Bedeli</div>
+          <img src={require('../img/opp.jpg')} alt="img 2" />
+          <div className="slide-text">2</div>
         </div>
         <div className="slide-item">
-          <img src={require('../img/fight.jpg')} alt="Resim 3" />
-          <div className="slide-text">Fight Club</div>
+          <img src={require('../img/opp.jpg')} alt="img 3" />
+          <div className="slide-text">3</div>
         </div>
         <div className="slide-item">
-          <img src={require('../img/matrix.jpg')} alt="Resim 4" />
-          <div className="slide-text">Matrix</div>
+          <img src={require('../img/opp.jpg')} alt="img 4" />
+          <div className="slide-text">4</div>
         </div>
         <div className="slide-item">
-          <img src={require('../img/star.jpg')} alt="Resim 5" />
-          <div className="slide-text">Star Wars</div>
+          <img src={require('../img/opp.jpg')} alt="img 5" />
+          <div className="slide-text">5</div>
         </div>
       </Slider>
     </div>
