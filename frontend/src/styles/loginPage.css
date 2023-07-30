@@ -1,0 +1,85 @@
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 320px;
+  padding: 30px;
+  border: 2px solid yellow;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  font-weight: bold;
+  font-size: 21px;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 9px;
+  margin-bottom: 15px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 30px;
+  margin: 5px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.signupbutton {
+  padding: 10px 115px;
+  margin: 5px;
+  background-color: #e0e033;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+  text-decoration: none;
+}
+
+.signcont {
+  margin-bottom: 30px;
+}
+
+.signupbutton:hover {
+  background-color: #b6b616;
+  color: black;
+}
+
+.googlebutton {
+  padding: 10px 110px;
+  margin: 5px;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+  text-decoration: none;
+}
+
+.googlebutton:hover {
+  background-color: #19db3c;
+  color: black;
+}
