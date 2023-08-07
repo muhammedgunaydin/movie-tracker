@@ -1,0 +1,8 @@
+.box{
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 20px;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+}

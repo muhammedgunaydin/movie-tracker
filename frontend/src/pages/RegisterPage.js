@@ -6,14 +6,16 @@ import Headernobut from '../components/headernobut'
 const RegisterPage = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleLogin = () => {
-    axios.post('http://localhost:9000/auth/signup',{email:email, password:password}).then(response => {
-      console.log('Yeni Kullanıcı:', response.data);
-      // Kullanıcı oluşturulduğunda gerekli işlemleri yapabilirsiniz
+  const handleRegister = () => {
+    axios.post('http://localhost:9000/auth/signup',{email , password}).then(response => {
+      console.log('New User:', response.data);
+      setErrorMessage('');
     })
     .catch(error => {
-      console.error('Kullanıcı oluşturulamadı:', error);
+      console.error('Error while creating account:', error);
+      setErrorMessage(error.message);
     });
   }
 
@@ -35,7 +37,8 @@ const RegisterPage = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button onClick={handleLogin}>Create</button>
+          {errorMessage && <p style={{ color: 'red', fontSize: '12px' }}>E-mail is already taken</p>}
+          <button onClick={handleRegister}>Create</button>
         </div>
       </div>
       <div className='signcont'>
