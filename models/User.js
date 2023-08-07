@@ -15,10 +15,6 @@ const UserSchema = new Schema({
     type: Boolean,
     default: false,
   },
-  movies:[{
-    type:mongoose.Schema.Types.ObjectId,
-    ref:'Movie'
-  }]
 })
 
 const User = mongoose.model('User', UserSchema)

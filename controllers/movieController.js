@@ -1,8 +1,20 @@
 const Movie = require('../models/Movie')
 
+
 const createMovie = async (req, res) => {
+  const { name, time, year,rating,director,actors,types } = req.body;
+  const image = req.file.filename
   try {
-    const movie = await Movie.create(req.body)
+    const movie = await Movie.create({
+      name, 
+      time, 
+      year,
+      rating,
+      director,
+      actors,
+      types,
+      image
+    })
     res.status(201).json(movie)
   } catch (err) {
     res.status(400).send(`Error while creating movie : ${err.message}`)
@@ -40,11 +52,17 @@ const updateMovie = async (req, res) => {
 
 const deleteMovie = async (req, res) => {
   try {
-    const {id}=req.params
-    const movie = await Movie.findOneAndDelete({_id:id})
+    const { id } = req.params
+    const movie = await Movie.findOneAndDelete({ _id: id })
     res.status(200).send('Movie deleted successfully')
   } catch (err) {
     res.status(400).send(`Error while deleting movie : ${err.message}`)
   }
 }
-module.exports = { createMovie, getAllMovies, getMovieById, updateMovie,deleteMovie }
+module.exports = {
+  createMovie,
+  getAllMovies,
+  getMovieById,
+  updateMovie,
+  deleteMovie,
+}

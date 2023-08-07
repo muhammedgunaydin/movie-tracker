@@ -1,8 +1,8 @@
 const User = require('../models/User')
 const bcrypt = require('bcrypt')
-const { generateJWT } = require('../utils/jwtUtils')
-const { setJWT } = require('../services/redisService')
-
+require('dotenv').config()
+const { generateJWT, verifyJWT } = require('../utils/jwtUtils')
+const { setJWT, delJWT } = require('../services/redisService')
 
 const signUp = async (req, res) => {
   try {
@@ -29,11 +29,28 @@ const login = async (req, res) => {
     if (!isValidPass) {
       return res.status(401).send('Username or password is incorrect')
     }
-    res.cookie('token', token, { httpOnly: true, secure: true })
-    res.send(`Welcome ${email}`)
+    res.cookie('token', token, { httpOnly: true, secure: false, maxAge: 3600*60*60*24 })
+    res.send(token)
   } catch (err) {
     res.status(500).send(err)
   }
 }
 
-module.exports = { signUp, login }
+const logout = async (req, res) => {
+  const token = req.cookies.token
+  if (!token) {
+    return res.status(401).send('Unauthorized')
+  }
+  try {
+    const decoded = verifyJWT(token, process.env.JWT_SECRET)
+    console.log(decoded)
+    delJWT(decoded.userId)
+    res.clearCookie('token')
+    res.json({ message: 'Logout successful' })
+  } catch (error) {
+    console.error(error)
+    res.status(403).send('Invalid token')
+  }
+}
+
+module.exports = { signUp, login, logout }

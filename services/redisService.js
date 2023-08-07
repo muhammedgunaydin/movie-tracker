@@ -17,8 +17,8 @@ const setJWT = (userId, token) => {
   client.setEx(userId, 3600, token)
 }
 
-const getJWT = (userId, callback) => {
-  client.get(userId, callback)
+const delJWT = (userId)=>{
+  client.del(userId)
 }
 
-module.exports = { client, setJWT, getJWT }
+module.exports = { client, setJWT, delJWT }

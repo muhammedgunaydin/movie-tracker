@@ -3,13 +3,13 @@ const Schema = mongoose.Schema
 
 const MovieSchema = new Schema({
   name: {
-    type: String,
-    required: true,
-    unique:true
+  type: String,
+    // required: true,
+    unique: true,
   },
   time: {
     type: String,
-    required: true,
+    // required: true,
   },
   year: {
     type: Number,
@@ -21,7 +21,7 @@ const MovieSchema = new Schema({
   },
   director: {
     type: String,
-    required: true,
+    // required: true,
   },
   actors: {
     type: String,
@@ -31,10 +31,9 @@ const MovieSchema = new Schema({
     type: String,
     default: null,
   },
-  user:{
-    type:mongoose.Schema.Types.ObjectId,
-    ref:'User'
-  }
+  image: {
+    type: String,
+  },
 })
 
 const Movie = mongoose.model('Movie', MovieSchema)
