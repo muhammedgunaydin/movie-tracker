@@ -4,12 +4,12 @@ const Schema = mongoose.Schema
 const MovieSchema = new Schema({
   name: {
   type: String,
-    // required: true,
+    required: true,
     unique: true,
   },
   time: {
     type: String,
-    // required: true,
+    required: true,
   },
   year: {
     type: Number,
@@ -21,7 +21,7 @@ const MovieSchema = new Schema({
   },
   director: {
     type: String,
-    // required: true,
+    required: true,
   },
   actors: {
     type: String,

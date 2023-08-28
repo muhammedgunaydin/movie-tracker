@@ -1,6 +1,5 @@
 const User = require('../models/User')
 const bcrypt = require('bcrypt')
-require('dotenv').config()
 const { generateJWT, verifyJWT } = require('../utils/jwtUtils')
 const { setJWT, delJWT } = require('../services/redisService')
 
@@ -53,4 +52,14 @@ const logout = async (req, res) => {
   }
 }
 
-module.exports = { signUp, login, logout }
+const getUserById = async (req, res) => {
+  try {
+    const { id } = req.params
+    const user = await User.findOne({ _id: id })
+    res.status(200).json({ user })
+  } catch (err) {
+    res.status(400).send(`Error while getting user : ${err.message}`)
+  }
+}
+
+module.exports = { signUp, login, logout,getUserById}
