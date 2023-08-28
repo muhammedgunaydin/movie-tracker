@@ -6,11 +6,11 @@ function AllMovies() {
   const [movieList, setMovieList] = useState([])
 
   useEffect(() => {
-    axios.get('http://172.27.160.1:9000/movie', {
+    axios.get('http://localhost:9000/movie', {
       })
       .then((response) =>{
         setMovieList(response.data.movies)
-  }).catch((error) => console.error('Veri çekme hatası:', error))
+  }).catch((error) => console.error('Error while fetching data:', error))
 
   }, [])
   return (

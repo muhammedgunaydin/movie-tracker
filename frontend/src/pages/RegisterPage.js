@@ -12,6 +12,7 @@ const RegisterPage = () => {
     axios.post('http://localhost:9000/auth/signup',{email , password}).then(response => {
       console.log('New User:', response.data);
       setErrorMessage('');
+      window.location.href = '/signin';
     })
     .catch(error => {
       console.error('Error while creating account:', error);

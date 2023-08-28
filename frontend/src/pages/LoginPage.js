@@ -1,12 +1,20 @@
 import React, { useState } from 'react'
+import { useDispatch,useSelector } from "react-redux";
 import axios from 'axios'
 import '../styles/loginPage.css'
 import Headernobut from '../components/headernobut'
+import { getUser } from '../context/userSlice'
+import { useNavigate } from "react-router-dom";
+import decoder from 'jwt-decode'
+
 
 const LoginPage = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('');
+  const dispatch = useDispatch((state) => state.User);
+  const {isLoggedIn} = useSelector(state =>state.User)
+  const navigate = useNavigate();
 
   const handleLogin = async(e) => {
     e.preventDefault();
@@ -21,11 +29,16 @@ const LoginPage = () => {
         const cookieValue = encodeURIComponent(value) + (days ? '; expires=' + expirationDate.toUTCString() : '');
         document.cookie = name + '=' + cookieValue + '; path=/';
       };
-      
-      // Kullanım örneği
       setCookie('myCookie', res.data, 7);
-      
+      const data = decoder(res.data)
+      console.log(data)
+      dispatch(getUser({
+        isLoggedIn: true,
+        email:email,
+        userId:data.userId
+      }))
       }
+      navigate("/user-dashboard")
     }
     catch(error) {
       console.error('Error while log in:', error);
@@ -37,6 +50,7 @@ const LoginPage = () => {
       <Headernobut></Headernobut>
       <div className="login-page">
         <h1>Sign In</h1>
+        <h2>{`${isLoggedIn}`}</h2>
         <div className="form">
           <label>E-mail:</label>
           <input
