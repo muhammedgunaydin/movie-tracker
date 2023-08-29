@@ -4,7 +4,7 @@ require('dotenv').config()
 const JWT_SECRET = process.env.JWT_SECRET
 
 function generateJWT(user) {
-    return jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: 3600 });
+    return jwt.sign({ userId: user._id}, JWT_SECRET, { expiresIn: 3600 });
   }
 
 const verifyJWT = (token) => {

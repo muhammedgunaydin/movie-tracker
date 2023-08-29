@@ -28,8 +28,16 @@ const login = async (req, res) => {
     if (!isValidPass) {
       return res.status(401).send('Username or password is incorrect')
     }
-    res.cookie('token', token, { httpOnly: true, secure: false, maxAge: 3600*60*60*24 })
-    res.send(token)
+    const responsePayload = {
+      user: user.isAdmin,
+      token: token,
+    }
+    res.cookie('token', token, {
+      httpOnly: true,
+      secure: false,
+      maxAge: 3600 * 60 * 60 * 24,
+    })
+    res.send(responsePayload)
   } catch (err) {
     res.status(500).send(err)
   }
@@ -62,4 +70,4 @@ const getUserById = async (req, res) => {
   }
 }
 
-module.exports = { signUp, login, logout,getUserById}
+module.exports = { signUp, login, logout, getUserById }

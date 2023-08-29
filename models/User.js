@@ -15,6 +15,25 @@ const UserSchema = new Schema({
     type: Boolean,
     default: false,
   },
+  watchlist: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Movie',
+  }],
+  favorites: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Movie',
+  }],
+  ratings: [{
+    movie: {
+      type: Schema.Types.ObjectId,
+      ref: 'Movie',
+    },
+    rating: {
+      type: Number,
+      min: 1,
+      max: 5,
+    },
+  }],
 })
 
 const User = mongoose.model('User', UserSchema)
