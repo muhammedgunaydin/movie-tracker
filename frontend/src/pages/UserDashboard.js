@@ -33,8 +33,8 @@ function UserDashboard() {
           </div>
         </div>
         <ul className="menu-list">
-          <button onClick={navigateMainPage}> Homepage </button>
-          
+          <button onClick={navigateMainPage}> Watchlist </button>
+          <button onClick={navigateMainPage}> Favorites </button>
         </ul>
       </div>
     </div>

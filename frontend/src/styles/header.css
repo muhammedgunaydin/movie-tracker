@@ -74,6 +74,20 @@
     display: inline-block;
     margin-right: 5px;
   }
+
+  .admin-panel-button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 15px;
+  }
   
   .login-button:hover {
     background-color: #CEF11F;
@@ -81,7 +95,10 @@
   .logout-button:hover {
     background-color: darkred;
   }
-
   .all-movies-button:hover {
     background-color: darkblue;
+  }
+  .admin-panel-button:hover {
+    background-color: white;
+    color: black;
   }

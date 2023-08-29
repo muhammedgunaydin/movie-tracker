@@ -45,9 +45,6 @@ const RegisterPage = () => {
       <div className='signcont'>
         <a className='signupbutton' href='/signin'>Do yo have account? Sign in</a>
       </div>
-      <div className='googlecont'>
-        <a className='googlebutton' href='/signup'>Continue With Google</a>
-      </div>
     </div>
   )
 }

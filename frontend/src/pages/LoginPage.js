@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import axios from 'axios'
 import '../styles/loginPage.css'
 import Headernobut from '../components/headernobut'
@@ -13,7 +13,6 @@ const LoginPage = () => {
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('');
   const dispatch = useDispatch((state) => state.User);
-  const {isLoggedIn} = useSelector(state =>state.User)
   const navigate = useNavigate();
 
   const handleLogin = async(e) => {
@@ -30,12 +29,13 @@ const LoginPage = () => {
         document.cookie = name + '=' + cookieValue + '; path=/';
       };
       setCookie('myCookie', res.data, 7);
-      const data = decoder(res.data)
-      console.log(data)
+      const data = decoder(res.data.token)
+      console.log(res.data.user)
       dispatch(getUser({
         isLoggedIn: true,
         email:email,
-        userId:data.userId
+        userId:data.userId,
+        isAdmin:res.data.user
       }))
       }
       navigate("/user-dashboard")
@@ -50,7 +50,6 @@ const LoginPage = () => {
       <Headernobut></Headernobut>
       <div className="login-page">
         <h1>Sign In</h1>
-        <h2>{`${isLoggedIn}`}</h2>
         <div className="form">
           <label>E-mail:</label>
           <input
@@ -70,9 +69,6 @@ const LoginPage = () => {
       </div>
       <div className='signcont'>
         <a className='signupbutton' href='/signup'>Create New Account</a>
-      </div>
-      <div className='googlecont'>
-        <a className='googlebutton' href='/signup'>Continue With Google</a>
       </div>
     </div>
   )

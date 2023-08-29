@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Headernobut from '../components/headernobut';
+import Header from '../components/header';
 import { useNavigate } from "react-router-dom";
 import '../styles/createmoviePage.css'
 
@@ -27,7 +27,7 @@ const CreateMovie = () => {
       types,
       image
     };
-console.log(image)
+    
     axios.post('http://localhost:9000/movie', newMovie,{
       headers:{
         'Content-Type': 'multipart/form-data'
@@ -46,7 +46,7 @@ console.log(image)
 
   return (
     <div>
-        <Headernobut></Headernobut>
+        <Header></Header>
       <h2>Create Movie</h2>
       <div className='box'>
         <label>Movie Name:</label>

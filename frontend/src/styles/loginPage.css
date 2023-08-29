@@ -67,19 +67,3 @@ button:hover {
   color: black;
 }
 
-.googlebutton {
-  padding: 10px 110px;
-  margin: 5px;
-  background-color: white;
-  color: black;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 10px;
-  text-decoration: none;
-}
-
-.googlebutton:hover {
-  background-color: #19db3c;
-  color: black;
-}

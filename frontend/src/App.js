@@ -6,6 +6,7 @@ import RegisterPage from './pages/RegisterPage'
 import CreateMoviePage from './pages/CreateMoviePage'
 import AllMoviePage from './pages/AllMoviePage'
 import UserDashboard from './pages/UserDashboard'
+import PanelPage from './pages/PanelPage'
 import './App.css'
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/create-movie" element={<CreateMoviePage/>}/>
           <Route path="/all-movies" element={<AllMoviePage/>}/>
           <Route path="/user-dashboard" element={<UserDashboard/>}/>
+          <Route path="/admin-panel" element={<PanelPage/>}/>
         </Routes>
       </div>
   )

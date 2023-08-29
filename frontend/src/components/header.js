@@ -1,21 +1,21 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { outUser } from '../context/userSlice'
-import { persistor } from '../context/store'
-import '../styles/header.css'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { outUser } from '../context/userSlice';
+import { persistor } from '../context/store';
+import '../styles/header.css';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
-  const { isLoggedIn } = useSelector((state) => state.User)
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const { isLoggedIn, isAdmin } = useSelector((state) => state.User); // isAdmin ekledik
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSignOut = () => {
-    dispatch(outUser())
-    persistor.purge()
-    navigate('/')
-  }
+    dispatch(outUser());
+    persistor.purge();
+    navigate('/');
+  };
 
   return (
     <div className="header">
@@ -31,6 +31,11 @@ const Header = () => {
       <div>
         {isLoggedIn ? (
           <div>
+            {isAdmin && (
+              <Link to="/admin-panel" className="admin-panel-button">
+                Panel
+              </Link>
+            )}
             <Link to="/user-dashboard" className="user-dashboard-button">
               Profile
             </Link>
@@ -45,7 +50,7 @@ const Header = () => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

@@ -21,6 +21,18 @@ function AllMovies() {
       .catch((error) => console.error('Error while fetching data:', error));
   }, [sortType]);
 
+  const addToWatchlist = (movieId) => {
+
+  };
+
+  const addToFavorites = (movieId) => {
+
+  };
+
+  const rateMovie = (movieId, rating) => {
+
+  };
+
   return (
     <div>
       <Header />
@@ -38,18 +50,25 @@ function AllMovies() {
         <ul className="movie-list">
           {movieList.map((movie, index) => (
             <li key={index} className="movie-item">
-              <h3>{movie.name}</h3>
-              <strong>Movie Time</strong>: {movie.time}<br />
-              <strong>Director</strong>: {movie.director}<br />
-              <strong>Year</strong>: {movie.year}<br />
-              <strong>Rating</strong>: {movie.rating}<br />
-              <strong>Actors</strong>: {movie.actors}<br />
-              <strong>Movie Types</strong>: {movie.types}<br />
+              <div className="movie-details">
+                <h3>{movie.name}</h3>
+                <strong>Movie Time</strong>: {movie.time}<br />
+                <strong>Director</strong>: {movie.director}<br />
+                <strong>Year</strong>: {movie.year}<br />
+                <strong>Rating</strong>: {movie.rating}<br />
+                <strong>Actors</strong>: {movie.actors}<br />
+                <strong>Movie Types</strong>: {movie.types}<br />
+              </div>
               <img
                 src={`http://localhost:9000/uploads/${movie.image}`}
                 alt={movie.name}
                 className="movie-image"
               />
+              <div className="movie-actions">
+                <button onClick={() => addToWatchlist(movie._id)}>Add to Watchlist</button>
+                <button onClick={() => addToFavorites(movie._id)}>Add to Favorites</button>
+                <button onClick={() => rateMovie(movie._id, 5)}>Rate 5 Stars</button>
+              </div>
             </li>
           ))}
         </ul>
