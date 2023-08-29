@@ -4,30 +4,40 @@ import { Link } from 'react-router-dom'
 import { outUser } from '../context/userSlice'
 import { persistor } from '../context/store'
 import '../styles/header.css'
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
   const { isLoggedIn } = useSelector((state) => state.User)
   const dispatch = useDispatch()
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleSignOut = () => {
     dispatch(outUser())
     persistor.purge()
-    navigate("/")
+    navigate('/')
   }
 
   return (
     <div className="header">
       <div className="logo-container">
         <img src={require('../img/logo.png')} alt="Logo" className="logo" />
-        <a href='/' className="lefthead">MovieTracker</a>
+        <a href="/" className="lefthead">
+          MovieTracker
+        </a>
+        <Link to="/all-movies" className="all-movies-button">
+          All Movies
+        </Link>
       </div>
       <div>
         {isLoggedIn ? (
-          <button className="logout-button" onClick={handleSignOut}>
-            Sign Out
-          </button>
+          <div>
+            <Link to="/user-dashboard" className="user-dashboard-button">
+              Profile
+            </Link>
+            <button className="logout-button" onClick={handleSignOut}>
+              Sign Out
+            </button>
+          </div>
         ) : (
           <Link className="login-button" to="/signin">
             Sign In

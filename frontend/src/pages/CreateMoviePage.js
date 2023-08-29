@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Headernobut from '../components/headernobut';
+import { useNavigate } from "react-router-dom";
 import '../styles/createmoviePage.css'
 
 const CreateMovie = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState('');
   const [time, setTime] = useState('');
   const [year, setYear] = useState('');
@@ -39,6 +41,7 @@ console.log(image)
         console.error('Error while creating movie:', error);
         setErrorMessage(error.message);
       });
+      navigate("/")
   };
 
   return (

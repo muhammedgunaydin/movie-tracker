@@ -46,7 +46,42 @@
     font-weight: bold;
     border-radius: 4px;
   }
+
+  .all-movies-button {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 15px;
+  }
+
+  .user-dashboard-button {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 5px;
+  }
   
+  .login-button:hover {
+    background-color: #CEF11F;
+  }
   .logout-button:hover {
     background-color: darkred;
+  }
+
+  .all-movies-button:hover {
+    background-color: darkblue;
   }
