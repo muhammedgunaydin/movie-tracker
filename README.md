@@ -9,7 +9,7 @@ and [React](https://react.dev/).
 - [MongoDB](https://www.mongodb.com/)
 - [Redis](https://redis.io/)
 - Code Editor
-If you don't want download mongo, redis etc. you can use [Docker](https://www.docker.com/)
+- If you don't want download mongo, redis etc. you can use [Docker](https://www.docker.com/)
 
 ## Instructions
 
