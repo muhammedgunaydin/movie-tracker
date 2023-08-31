@@ -9,9 +9,9 @@ function UserDashboard() {
   const [user, setUser] = useState([])
   const {userId} = useSelector(state =>state.User)
   const navigate = useNavigate();
-  const navigateMainPage = async(e)=>{
+  const navigateWatchlist = async(e)=>{
     e.preventDefault()
-    navigate("/")
+    navigate("/watchlist")
   }
   useEffect(() => {
     axios
@@ -33,8 +33,7 @@ function UserDashboard() {
           </div>
         </div>
         <ul className="menu-list">
-          <button onClick={navigateMainPage}> Watchlist </button>
-          <button onClick={navigateMainPage}> Favorites </button>
+          <button onClick={navigateWatchlist}> Watchlist </button>
         </ul>
       </div>
     </div>

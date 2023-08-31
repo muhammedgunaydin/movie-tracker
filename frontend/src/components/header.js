@@ -7,7 +7,7 @@ import '../styles/header.css';
 import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
-  const { isLoggedIn, isAdmin } = useSelector((state) => state.User); // isAdmin ekledik
+  const { isLoggedIn, isAdmin } = useSelector((state) => state.User);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
