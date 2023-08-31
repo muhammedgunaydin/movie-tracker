@@ -18,10 +18,7 @@ const UserSchema = new Schema({
   watchlist: [{
     type: Schema.Types.ObjectId,
     ref: 'Movie',
-  }],
-  favorites: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Movie',
+    unique: true,
   }],
   ratings: [{
     movie: {

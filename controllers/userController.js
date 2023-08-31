@@ -50,7 +50,6 @@ const logout = async (req, res) => {
   }
   try {
     const decoded = verifyJWT(token, process.env.JWT_SECRET)
-    console.log(decoded)
     delJWT(decoded.userId)
     res.clearCookie('token')
     res.json({ message: 'Logout successful' })
